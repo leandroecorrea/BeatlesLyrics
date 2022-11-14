@@ -10,6 +10,6 @@ public class SongsProvider : MonoBehaviour
     async void OnEnable()
     {
         var result = await new LoadSongsUseCase().GetSongsAsync();
-        Songs = result.ToReactiveCollection();
+        result.ForEach(x=> Songs.Add(x));        
     }
 }
